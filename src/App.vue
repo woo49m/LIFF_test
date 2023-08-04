@@ -100,5 +100,6 @@ const share = () => {
     </div>
     <button @click="sendMessage">回傳訊息</button>
     <button @click="share">分享</button>
+    <button @click="liff.logout()">登出</button>
   </div>
 </template>
