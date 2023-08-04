@@ -84,7 +84,7 @@ const share = () => {
         }
       }
     })
-    .catch(function (error) {
+    .catch(function () {
       // something went wrong before sending a message
       console.log("something wrong happen");
     });
