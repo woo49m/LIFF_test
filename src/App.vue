@@ -89,6 +89,12 @@ const share = () => {
       console.log("something wrong happen");
     });
 };
+const logout = () => {
+  liff.logout();
+};
+const login = () => {
+  liff.login();
+};
 </script>
 
 <template>
@@ -100,6 +106,7 @@ const share = () => {
     </div>
     <button @click="sendMessage">回傳訊息</button>
     <button @click="share">分享</button>
-    <button @click="liff.logout()">登出</button>
+    <button @click="logout">登出</button>
+    <button @click="login">登入</button>
   </div>
 </template>
