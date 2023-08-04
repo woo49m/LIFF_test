@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import { ref } from "vue";
 import liff from "@line/liff";
 
 liff
@@ -27,31 +27,22 @@ liff
   .catch(() => {
     console.log("初始化失敗");
   });
+const name = ref();
+
+const getProfile = () => {
+  liff.getProfile().then((profile) => {
+    name.value = profile;
+  });
+};
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    功能測試
+    <div>
+      <button @click="getProfile">獲得用戶資訊</button>
+      <div>{{ name }}</div>
+    </div>
+    <button>回傳訊息</button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
