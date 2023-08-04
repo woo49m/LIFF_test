@@ -34,6 +34,28 @@ const getProfile = () => {
     name.value = profile;
   });
 };
+
+const sendMessage = () => {
+  if (!liff.isInClient()) {
+    window.alert(
+      "This button is unavailable as LIFF is currently being opened in an external browser."
+    );
+  } else {
+    liff
+      .sendMessages([
+        {
+          type: "text",
+          text: "Hello, World!",
+        },
+      ])
+      .then(() => {
+        window.alert("Message sent");
+      })
+      .catch((error) => {
+        window.alert("Error sending message: " + error);
+      });
+  }
+};
 </script>
 
 <template>
@@ -43,6 +65,6 @@ const getProfile = () => {
       <button @click="getProfile">獲得用戶資訊</button>
       <div>{{ name }}</div>
     </div>
-    <button>回傳訊息</button>
+    <button @click="sendMessage">回傳訊息</button>
   </div>
 </template>
