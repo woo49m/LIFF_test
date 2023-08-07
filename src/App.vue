@@ -2,19 +2,13 @@
 import { ref } from "vue";
 import liff from "@line/liff";
 
+const name = ref();
+
 liff
   .init({ liffId: "2000282081-MblO1kW3" })
   .then(() => {
     console.log("初始化成功");
-    let os = liff.getOS();
-    var lineVersion = liff.getLineVersion();
-    console.log(lineVersion);
-    console.log(os);
-    if (liff.isApiAvailable("shareTargetPicker")) {
-      //todo
-    } else {
-      alert("你的 LINE App 暫時不支援 Share Target Picker");
-    }
+
     var isInClient = liff.isInClient();
     console.log("isInClient", isInClient);
     if (!liff.isLoggedIn()) {
@@ -27,7 +21,6 @@ liff
   .catch(() => {
     console.log("初始化失敗");
   });
-const name = ref();
 
 const getProfile = () => {
   liff.getProfile().then((profile) => {
