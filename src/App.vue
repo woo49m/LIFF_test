@@ -29,9 +29,7 @@ getProfile();
 
 const closeIntergrate = () => {
   if (!liff.isInClient()) {
-    window.alert(
-      "This button is unavailable as LIFF is currently being opened in an external browser."
-    );
+    window.alert("目前外部瀏覽器上不支援此功能");
   } else {
     liff
       .sendMessages([
