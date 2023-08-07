@@ -39,7 +39,9 @@ const closeIntergrate = () => {
         },
       ])
       .then(() => {
-        window.alert("Message sent");
+        window.alert(
+          "關閉_" + storeID.value + " 訊息已傳送，請至聊天室確認結果"
+        );
         liff.closeWindow();
       })
       .catch((error) => {
@@ -60,7 +62,9 @@ const openIntergrate = () => {
         },
       ])
       .then(() => {
-        window.alert("Message sent");
+        window.alert(
+          "開啟_" + storeID.value + " 訊息已傳送，請至聊天室確認結果"
+        );
         liff.closeWindow();
       })
       .catch((error) => {
