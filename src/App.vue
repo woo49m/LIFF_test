@@ -3,7 +3,6 @@ import { ref } from "vue";
 import liff from "@line/liff";
 
 const name = ref();
-const profile_Picture = ref<string>("/profile_pic.jpeg");
 const storeID = ref<string>("");
 liff
   .init({ liffId: "2000282081-MblO1kW3" })
@@ -19,7 +18,6 @@ liff
 const getProfile = () => {
   liff.getProfile().then((profile) => {
     name.value = profile.displayName;
-    profile_Picture.value = profile.pictureUrl;
   });
 };
 getProfile();
