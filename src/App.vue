@@ -8,8 +8,11 @@ liff
   .init({ liffId: "2000282081-MblO1kW3" })
   .then(() => {
     console.log("初始化成功");
-    if (liff.isLoggedIn()) getProfile();
-    else liff.login();
+    if (liff.isLoggedIn()) {
+      getProfile();
+    } else {
+      liff.login();
+    }
   })
   .catch(() => {
     console.log("初始化失敗");
@@ -32,7 +35,7 @@ const closeIntergrate = () => {
       .sendMessages([
         {
           type: "text",
-          text: "關閉_" + storeID,
+          text: "關閉_" + storeID.value,
         },
       ])
       .then(() => {
@@ -55,7 +58,7 @@ const openIntergrate = () => {
       .sendMessages([
         {
           type: "text",
-          text: "開啟_" + storeID,
+          text: "開啟_" + storeID.value,
         },
       ])
       .then(() => {
