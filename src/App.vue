@@ -9,8 +9,10 @@ liff
   .then(() => {
     console.log("初始化成功");
     if (liff.isLoggedIn()) {
+      console.log("已登入");
       getProfile();
     } else {
+      console.log("未登入");
       liff.login();
     }
   })
