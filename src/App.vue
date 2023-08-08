@@ -7,6 +7,7 @@ const storeID = ref<string>("");
 liff
   .init({ liffId: "2000282081-MblO1kW3" })
   .then(() => {
+    /*
     console.log("初始化成功");
     if (liff.isLoggedIn()) {
       console.log("已登入");
@@ -15,17 +16,20 @@ liff
       console.log("未登入");
       liff.login();
     }
+    */
   })
   .catch(() => {
     console.log("初始化失敗");
   });
 
+/*
 const getProfile = () => {
   liff.getProfile().then((profile) => {
     name.value = profile.displayName;
   });
 };
 getProfile();
+*/
 
 const closeIntergrate = () => {
   if (!liff.isInClient()) {
@@ -92,17 +96,17 @@ const openIntergrate = () => {
       <div class="p-4">
         <div class="flex items-center justify-center w-[100%] flex-row mb-8">
           <div class="mr-4">storeID:</div>
-          <input v-model="storeID" class="rounded-xl p-2" />
+          <input v-model="storeID" class="rounded-xl p-2 shadow-md" />
         </div>
         <div class="grid grid-cols-8 gap-4">
           <div
-            class="w-full col-span-4 flex justify-center bg-slate-300 p-4 rounded-full hover:bg-slate-500"
+            class="w-full col-span-4 flex justify-center bg-slate-300 p-4 rounded-full hover:bg-slate-500 shadow-md"
             @click="closeIntergrate"
           >
             關閉UberEats
           </div>
           <div
-            class="w-full col-span-4 flex justify-center bg-slate-300 p-4 rounded-full hover:bg-slate-500"
+            class="w-full col-span-4 flex justify-center bg-slate-300 p-4 rounded-full hover:bg-slate-500 shadow-md"
             @click="openIntergrate"
           >
             開啟UberEats
