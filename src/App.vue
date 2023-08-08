@@ -7,6 +7,10 @@ const storeID = ref<string>("");
 liff
   .init({ liffId: "2000282081-MblO1kW3" })
   .then(() => {
+    if (liff.isInClient())
+      liff.getProfile().then((profile) => {
+        name.value = profile.displayName;
+      });
     /*
     console.log("初始化成功");
     if (liff.isLoggedIn()) {
@@ -21,15 +25,6 @@ liff
   .catch(() => {
     console.log("初始化失敗");
   });
-
-/*
-const getProfile = () => {
-  liff.getProfile().then((profile) => {
-    name.value = profile.displayName;
-  });
-};
-getProfile();
-*/
 
 const closeIntergrate = () => {
   if (!liff.isInClient()) {
